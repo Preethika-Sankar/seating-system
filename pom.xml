@@ -84,7 +84,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.exam.seatingSystem.SeatingSystemApplication</mainClass>
+                           <mainClass>com.exam.seatingsystem.SeatingSystemApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
