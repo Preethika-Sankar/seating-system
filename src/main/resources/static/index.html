@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seating Plan - Exam 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        input, button {
+            margin: 10px;
+            padding: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Seating Plan</h1>
+
+    <!-- Search by Student Name -->
+    <label for="studentSearch">Enter Student Name:</label>
+    <input type="text" id="studentSearch" placeholder="e.g. Bob">
+    <button onclick="searchStudent()">Search</button>
+
+    <!-- Seating Plan Table -->
+    <table id="seatingTable">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Roll No</th>
+                <th>Course</th>
+                <th>Semester</th>
+                <th>Room</th>
+                <th>Seat Number</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        const examId = 1; // ✅ Fixed to Exam 1
+
+        function searchStudent() {
+            const name = document.getElementById("studentSearch").value.trim();
+
+            if (!name) {
+                alert("Please enter a student name.");
+                return;
+            }
+
+            fetch(`http://localhost:8080/plan/search?name=${encodeURIComponent(name)}&examId=${examId}`)
+                .then(response => response.json())
+                .then(data => renderTable(data))
+                .catch(err => alert("Error searching student: " + err));
+        }
+
+        function renderTable(data) {
+            const tbody = document.querySelector("#seatingTable tbody");
+            tbody.innerHTML = "";
+
+            if (!Array.isArray(data) || data.length === 0) {
+                const row = document.createElement("tr");
+                row.innerHTML = `<td colspan="6" style="text-align:center;">No matching student found</td>`;
+                tbody.appendChild(row);
+                return;
+            }
+
+            data.forEach(plan => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${plan.studentName}</td>
+                    <td>${plan.rollNo}</td>
+                    <td>${plan.course}</td>
+                    <td>${plan.semester}</td>
+                    <td>${plan.roomName}</td>
+                    <td>${plan.seatNo}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+    </script>
+
+</body>
+</html>

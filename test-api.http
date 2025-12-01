@@ -1,0 +1,8 @@
+### Assign Seats to Exam ID 1
+POST http://localhost:8080/api/assign-seats/1
+Content-Type: application/json
+
+###
+
+### Get Seating Plan for Exam ID 1
+GET http://localhost:8080/api/test/1
