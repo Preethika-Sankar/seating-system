@@ -41,7 +41,7 @@
 <dependency>
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>
-    <version>8.0.33</version> <!-- ✅ Add version explicitly -->
+    <version>8.0.33</version> <!-- ✅ Add this line -->
     <scope>runtime</scope>
 </dependency>
 
@@ -64,17 +64,17 @@
         <plugins>
             <!-- Spring Boot plugin to build executable JAR -->
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-maven-plugin</artifactId>
+  <version>3.1.0</version>
+  <executions>
+    <execution>
+      <goals>
+        <goal>repackage</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
 
             <!-- Maven JAR plugin to set main class -->
             <plugin>
