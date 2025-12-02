@@ -1,4 +1,3 @@
--- Insert students with correct column names
 INSERT INTO student (name, roll_no, course, semester) VALUES ('Preethika', 'A01', 'CSE', 7);
 INSERT INTO student (name, roll_no, course, semester) VALUES ('Gomathi',   'A02', 'CSE', 7);
 INSERT INTO student (name, roll_no, course, semester) VALUES ('Akalya',    'A03', 'AIDS', 7);
