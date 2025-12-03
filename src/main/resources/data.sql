@@ -1,32 +1,19 @@
 -- =========================
 -- Students
 -- =========================
-INSERT INTO student (id, name, roll_no, course, semester) VALUES
-(1, 'Preethika', 'A01', 'CSE', 7);
-INSERT INTO student (id, name, roll_no, course, semester) VALUES
-(2, 'Gomathi', 'A02', 'CSE', 7);
-INSERT INTO student (id, name, roll_no, course, semester) VALUES
-(3, 'Akalya', 'A03', 'AIDS', 7);
-INSERT INTO student (id, name, roll_no, course, semester) VALUES
-(4, 'Varsha', 'A04', 'AIDS', 7);
-INSERT INTO student (id, name, roll_no, course, semester) VALUES
-(5, 'Maha', 'A05', 'AIDS', 7);
-INSERT INTO student (id, name, roll_no, course, semester) VALUES
-(6, 'Harini', 'B01', 'CSE', 7);
-INSERT INTO student (id, name, roll_no, course, semester) VALUES
-(7, 'Roshini', 'B02', 'CSE', 7);
-INSERT INTO student (id, name, roll_no, course, semester) VALUES
-(8, 'Ganesh', 'B03', 'CSE', 2);
-INSERT INTO student (id, name, roll_no, course, semester) VALUES
-(9, 'Sibi', 'B04', 'AIDS', 6);
-INSERT INTO student (id, name, roll_no, course, semester) VALUES
-(10, 'Mukesh', 'B05', 'IT', 6);
-INSERT INTO student (id, name, roll_no, course, semester) VALUES
-(11, 'Naveen', 'C01', 'CSE', 6);
-INSERT INTO student (id, name, roll_no, course, semester) VALUES
-(12, 'Mani', 'C02', 'CSE', 4);
-INSERT INTO student (id, name, roll_no, course, semester) VALUES
-(13, 'Jana', 'C03', 'MECH', 8);
+INSERT INTO student (id, name, roll_no, course, semester) VALUES (1, 'Preethika', 'A01', 'CSE', 7);
+INSERT INTO student (id, name, roll_no, course, semester) VALUES (2, 'Gomathi', 'A02', 'CSE', 7);
+INSERT INTO student (id, name, roll_no, course, semester) VALUES (3, 'Akalya', 'A03', 'AIDS', 7);
+INSERT INTO student (id, name, roll_no, course, semester) VALUES (4, 'Varsha', 'A04', 'AIDS', 7);
+INSERT INTO student (id, name, roll_no, course, semester) VALUES (5, 'Maha', 'A05', 'AIDS', 7);
+INSERT INTO student (id, name, roll_no, course, semester) VALUES (6, 'Harini', 'B01', 'CSE', 7);
+INSERT INTO student (id, name, roll_no, course, semester) VALUES (7, 'Roshini', 'B02', 'CSE', 7);
+INSERT INTO student (id, name, roll_no, course, semester) VALUES (8, 'Ganesh', 'B03', 'CSE', 2);
+INSERT INTO student (id, name, roll_no, course, semester) VALUES (9, 'Sibi', 'B04', 'AIDS', 6);
+INSERT INTO student (id, name, roll_no, course, semester) VALUES (10, 'Mukesh', 'B05', 'IT', 6);
+INSERT INTO student (id, name, roll_no, course, semester) VALUES (11, 'Naveen', 'C01', 'CSE', 6);
+INSERT INTO student (id, name, roll_no, course, semester) VALUES (12, 'Mani', 'C02', 'CSE', 4);
+INSERT INTO student (id, name, roll_no, course, semester) VALUES (13, 'Jana', 'C03', 'MECH', 8);
 
 -- =========================
 -- Exams (no date column)
