@@ -5,50 +5,68 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "seating_plan")
 public class SeatingPlan {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // ✅ Proper relationship to Exam
-    @ManyToOne
-    @JoinColumn(name = "exam_id")
-    private Exam exam;
+    @Column(name = "exam_id")
+    private Long examId;
 
-    @ManyToOne
-    @JoinColumn(name = "student_id")
-    private Student student;
+    @Column(name = "student_id")
+    private Long studentId;
 
-    @ManyToOne
-    @JoinColumn(name = "room_id")
-    private Room room;
+    @Column(name = "room_no")
+    private String roomNo;
 
     @Column(name = "seat_no")
     private int seatNo;
 
-    // Constructors
     public SeatingPlan() {}
 
-    public SeatingPlan(Exam exam, Student student, Room room, int seatNo) {
-        this.exam = exam;
-        this.student = student;
-        this.room = room;
+    public SeatingPlan(Long examId, Long studentId, String roomNo, int seatNo) {
+        this.examId = examId;
+        this.studentId = studentId;
+        this.roomNo = roomNo;
         this.seatNo = seatNo;
     }
 
-    // Getters and Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
 
-    public Exam getExam() { return exam; }
-    public void setExam(Exam exam) { this.exam = exam; }
+    public Long getExamId() {
+        return examId;
+    }
 
-    public Student getStudent() { return student; }
-    public void setStudent(Student student) { this.student = student; }
+    public Long getStudentId() {
+        return studentId;
+    }
 
-    public Room getRoom() { return room; }
-    public void setRoom(Room room) { this.room = room; }
+    public String getRoomNo() {
+        return roomNo;
+    }
 
-    public int getSeatNo() { return seatNo; }
-    public void setSeatNo(int seatNo) { this.seatNo = seatNo; }
+    public int getSeatNo() {
+        return seatNo;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setExamId(Long examId) {
+        this.examId = examId;
+    }
+
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
+    }
+
+    public void setRoomNo(String roomNo) {
+        this.roomNo = roomNo;
+    }
+
+    public void setSeatNo(int seatNo) {
+        this.seatNo = seatNo;
+    }
 }

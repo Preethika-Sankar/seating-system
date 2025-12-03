@@ -5,35 +5,43 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "room")
 public class Room {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "room_no")
+    private String roomNo;
 
-    @Column(name = "capacity")
     private int capacity;
 
-    // Constructors
     public Room() {}
 
-    public Room(String name, int capacity) {
-        this.name = name;
+    public Room(String roomNo, int capacity) {
+        this.roomNo = roomNo;
         this.capacity = capacity;
     }
 
-    // Getters and Setters
-    public Long getId() { return id; }
+    public Long getId() {
+        return id;
+    }
 
-    public void setId(Long id) { this.id = id; }
+    public String getRoomNo() {
+        return roomNo;
+    }
 
-    public String getName() { return name; }
+    public int getCapacity() {
+        return capacity;
+    }
 
-    public void setName(String name) { this.name = name; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public int getCapacity() { return capacity; }
+    public void setRoomNo(String roomNo) {
+        this.roomNo = roomNo;
+    }
 
-    public void setCapacity(int capacity) { this.capacity = capacity; }
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
 }

@@ -8,12 +8,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/students")
 public class StudentController {
 
-    @Autowired
-    private StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
 
-    @GetMapping("/students")
+    @Autowired
+    public StudentController(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
+    @GetMapping
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }

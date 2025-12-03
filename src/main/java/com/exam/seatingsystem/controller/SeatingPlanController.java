@@ -11,25 +11,14 @@ import java.util.List;
 @RequestMapping("/plan")
 public class SeatingPlanController {
 
+    private final SeatingService seatingService;
+
     @Autowired
-    private SeatingService seatingService;
-
-    // ✅ Search by student name for a given exam
-    @GetMapping("/search")
-    public List<SeatingPlanDTO> searchByStudentName(
-            @RequestParam String name,
-            @RequestParam Long examId) {
-        return seatingService.searchByStudentName(name, examId);
+    public SeatingPlanController(SeatingService seatingService) {
+        this.seatingService = seatingService;
     }
 
-    // ✅ Assign seats for a given exam
-    @GetMapping("/assign/{examId}")
-    public String assignSeats(@PathVariable Long examId) {
-        seatingService.assignSeats(examId);
-        return "Seats assigned for exam " + examId;
-    }
-
-    // ✅ Get full seating plan for a given exam
+    // GET /plan/{examId}
     @GetMapping("/{examId}")
     public List<SeatingPlanDTO> getSeatingPlan(@PathVariable Long examId) {
         return seatingService.getSeatingPlanByExam(examId);

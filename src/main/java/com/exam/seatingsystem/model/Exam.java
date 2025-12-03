@@ -1,31 +1,47 @@
 package com.exam.seatingsystem.model;
 
 import jakarta.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "exam")
 public class Exam {
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
     private String name;
 
-    // Constructors
+    private LocalDate date;
+
     public Exam() {}
 
-    public Exam(Long id, String name) {
+    public Exam(String name, LocalDate date) {
+        this.name = name;
+        this.date = date;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 
-    // Getters and Setters
-    public Long getId() { return id; }
-
-    public void setId(Long id) { this.id = id; }
-
-    public String getName() { return name; }
-
-    public void setName(String name) { this.name = name; }
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 }

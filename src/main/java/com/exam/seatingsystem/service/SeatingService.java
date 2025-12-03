@@ -1,80 +1,45 @@
 package com.exam.seatingsystem.service;
 
 import com.exam.seatingsystem.dto.SeatingPlanDTO;
-import com.exam.seatingsystem.model.Exam;         // ✅ FIXED
-import com.exam.seatingsystem.model.Room;         // ✅ FIXED
-import com.exam.seatingsystem.model.SeatingPlan;  // ✅ FIXED
-import com.exam.seatingsystem.model.Student;      // ✅ FIXED
-import com.exam.seatingsystem.repository.ExamRepository;
-import com.exam.seatingsystem.repository.RoomRepository;
+import com.exam.seatingsystem.model.SeatingPlan;
+import com.exam.seatingsystem.model.Student;
 import com.exam.seatingsystem.repository.SeatingPlanRepository;
 import com.exam.seatingsystem.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class SeatingService {
 
-    @Autowired
-    private SeatingPlanRepository seatingRepo;
+    private final SeatingPlanRepository seatingPlanRepository;
+    private final StudentRepository studentRepository;
 
     @Autowired
-    private StudentRepository studentRepo;
-
-    @Autowired
-    private RoomRepository roomRepo;
-
-    @Autowired
-    private ExamRepository examRepo;
-
-    public void assignSeats(Long examId) {
-        Exam exam = examRepo.findById(examId).orElseThrow();
-
-        List<SeatingPlan> oldPlans = seatingRepo.findByExam_Id(examId);
-        seatingRepo.deleteAll(oldPlans);
-
-        List<Student> students = studentRepo.findAll();
-        List<Room> rooms = roomRepo.findAll();
-
-        int seatNo = 1;
-        int roomIndex = 0;
-        int roomCapacity = rooms.get(roomIndex).getCapacity();
-        int roomSeatCount = 0;
-
-        for (Student student : students) {
-            if (roomSeatCount >= roomCapacity) {
-                roomIndex++;
-                if (roomIndex >= rooms.size()) break;
-                roomCapacity = rooms.get(roomIndex).getCapacity();
-                roomSeatCount = 0;
-            }
-
-            SeatingPlan plan = new SeatingPlan();
-            plan.setExam(exam);
-            plan.setStudent(student);
-            plan.setRoom(rooms.get(roomIndex));
-            plan.setSeatNo(seatNo++);
-
-            seatingRepo.save(plan);
-            roomSeatCount++;
-        }
+    public SeatingService(SeatingPlanRepository seatingPlanRepository, StudentRepository studentRepository) {
+        this.seatingPlanRepository = seatingPlanRepository;
+        this.studentRepository = studentRepository;
     }
 
     public List<SeatingPlanDTO> getSeatingPlanByExam(Long examId) {
-        return seatingRepo.findByExam_Id(examId)
-                .stream()
-                .map(SeatingPlanDTO::fromEntity)
-                .toList();
-    }
+        List<SeatingPlan> plans = seatingPlanRepository.findByExamId(examId);
+        List<SeatingPlanDTO> dtos = new ArrayList<>();
 
-    public List<SeatingPlanDTO> searchByStudentName(String name, Long examId) {
-        if (name == null || examId == null) return List.of();
-
-        return seatingRepo.findByExam_IdAndStudent_NameContainingIgnoreCase(examId, name)
-                .stream()
-                .map(SeatingPlanDTO::fromEntity)
-                .toList();
+        for (SeatingPlan plan : plans) {
+            Student student = studentRepository.findById(plan.getStudentId()).orElse(null);
+            if (student != null) {
+                SeatingPlanDTO dto = new SeatingPlanDTO();
+                dto.setName(student.getName());
+                dto.setRollNo(student.getRollNo());
+                dto.setCourse(student.getCourse());
+                dto.setSemester(student.getSemester());
+                dto.setRoomNo(plan.getRoomNo());
+                dto.setSeatNo(plan.getSeatNo());
+                dtos.add(dto);
+            }
+        }
+        return dtos;
     }
 }

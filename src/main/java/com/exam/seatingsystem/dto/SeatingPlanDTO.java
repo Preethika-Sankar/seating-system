@@ -1,42 +1,69 @@
 package com.exam.seatingsystem.dto;
 
-import com.exam.seatingsystem.model.SeatingPlan;
-
 public class SeatingPlanDTO {
-    private String studentName;
+    private String name;
     private String rollNo;
     private String course;
     private int semester;
-    private String roomName;
+    private String roomNo;
     private int seatNo;
 
-    // ✅ Convert entity → DTO
-    public static SeatingPlanDTO fromEntity(SeatingPlan plan) {
-    SeatingPlanDTO dto = new SeatingPlanDTO();
-    dto.setStudentName(plan.getStudent().getName());
-    dto.setRollNo(plan.getStudent().getRollNo());
-    dto.setCourse(plan.getStudent().getCourse()); // ✅ use getCourse()
-    dto.setSemester(plan.getStudent().getSemester());
-    dto.setRoomName(plan.getRoom().getName());
-    dto.setSeatNo(plan.getSeatNo());
-    return dto;
-}
-    // ✅ Getters and setters
-    public String getStudentName() { return studentName; }
-    public void setStudentName(String studentName) { this.studentName = studentName; }
+    public SeatingPlanDTO() {}
 
-    public String getRollNo() { return rollNo; }
-    public void setRollNo(String rollNo) { this.rollNo = rollNo; }
+    public SeatingPlanDTO(String name, String rollNo, String course, int semester, String roomNo, int seatNo) {
+        this.name = name;
+        this.rollNo = rollNo;
+        this.course = course;
+        this.semester = semester;
+        this.roomNo = roomNo;
+        this.seatNo = seatNo;
+    }
 
-    public String getCourse() { return course; }
-    public void setCourse(String course) { this.course = course; }
+    public String getName() {
+        return name;
+    }
 
-    public int getSemester() { return semester; }
-    public void setSemester(int semester) { this.semester = semester; }
+    public String getRollNo() {
+        return rollNo;
+    }
 
-    public String getRoomName() { return roomName; }
-    public void setRoomName(String roomName) { this.roomName = roomName; }
+    public String getCourse() {
+        return course;
+    }
 
-    public int getSeatNo() { return seatNo; }
-    public void setSeatNo(int seatNo) { this.seatNo = seatNo; }
+    public int getSemester() {
+        return semester;
+    }
+
+    public String getRoomNo() {
+        return roomNo;
+    }
+
+    public int getSeatNo() {
+        return seatNo;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setRollNo(String rollNo) {
+        this.rollNo = rollNo;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    public void setSemester(int semester) {
+        this.semester = semester;
+    }
+
+    public void setRoomNo(String roomNo) {
+        this.roomNo = roomNo;
+    }
+
+    public void setSeatNo(int seatNo) {
+        this.seatNo = seatNo;
+    }
 }

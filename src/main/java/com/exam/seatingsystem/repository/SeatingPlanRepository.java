@@ -1,12 +1,12 @@
 package com.exam.seatingsystem.repository;
 
-import com.exam.seatingsystem.model.SeatingPlan; // ✅ FIXED
+import com.exam.seatingsystem.model.SeatingPlan;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
+@Repository
 public interface SeatingPlanRepository extends JpaRepository<SeatingPlan, Long> {
-
-    List<SeatingPlan> findByExam_IdAndStudent_NameContainingIgnoreCase(Long examId, String name);
-
-    List<SeatingPlan> findByExam_Id(Long examId);
+    List<SeatingPlan> findByExamId(Long examId);
 }
