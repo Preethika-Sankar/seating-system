@@ -1,12 +1,4 @@
 -- =========================
--- Clear tables safely
--- =========================
-DELETE FROM seating_plan;
-DELETE FROM room;
-DELETE FROM exam;
-DELETE FROM student;
-
--- =========================
 -- Students
 -- =========================
 INSERT INTO student (name, roll_no, course, semester) VALUES ('Preethika', 'A01', 'CSE', 7);
