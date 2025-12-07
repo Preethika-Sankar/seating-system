@@ -1,5 +1,13 @@
 -- =========================
--- Students (no manual id)
+-- Clear tables to avoid duplicates
+-- =========================
+DELETE FROM seating_plan;
+DELETE FROM room;
+DELETE FROM exam;
+DELETE FROM student;
+
+-- =========================
+-- Students
 -- =========================
 INSERT INTO student (name, roll_no, course, semester) VALUES ('Preethika', 'A01', 'CSE', 7);
 INSERT INTO student (name, roll_no, course, semester) VALUES ('Gomathi', 'A02', 'CSE', 7);
@@ -16,24 +24,21 @@ INSERT INTO student (name, roll_no, course, semester) VALUES ('Mani', 'C02', 'CS
 INSERT INTO student (name, roll_no, course, semester) VALUES ('Jana', 'C03', 'MECH', 8);
 
 -- =========================
--- Exams (no manual id, no date)
+-- Exams
 -- =========================
 INSERT INTO exam (name) VALUES ('Semester 7 Final');
 INSERT INTO exam (name) VALUES ('Semester 6 Midterm');
 
 -- =========================
--- Rooms (if you have Room entity with auto id)
+-- Rooms
 -- =========================
 INSERT INTO room (room_no, capacity) VALUES ('Room A', 30);
 INSERT INTO room (room_no, capacity) VALUES ('Room B', 30);
 INSERT INTO room (room_no, capacity) VALUES ('Room C', 20);
 
 -- =========================
--- Seating Plan (exam_id + student_id + room_no + seat_no)
--- IMPORTANT: exam_id and student_id values assume auto IDs start at 1 in insert order.
+-- Seating Plan
 -- =========================
-
--- Exam 1 (Semester 7 Final)
 INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (1, 1, 'Room A', 1);
 INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (1, 2, 'Room A', 2);
 INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (1, 3, 'Room B', 1);
@@ -42,7 +47,6 @@ INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (1, 5, '
 INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (1, 6, 'Room A', 3);
 INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (1, 7, 'Room A', 4);
 
--- Exam 2 (Semester 6 Midterm)
 INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (2, 8, 'Room C', 1);
 INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (2, 9, 'Room C', 2);
 INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (2, 10, 'Room C', 3);

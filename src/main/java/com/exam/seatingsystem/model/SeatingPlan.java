@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "seating_plan")
 public class SeatingPlan {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -34,36 +35,36 @@ public class SeatingPlan {
         return id;
     }
 
-    public Long getExamId() {
-        return examId;
-    }
-
-    public Long getStudentId() {
-        return studentId;
-    }
-
-    public String getRoomNo() {
-        return roomNo;
-    }
-
-    public int getSeatNo() {
-        return seatNo;
-    }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getExamId() {
+        return examId;
     }
 
     public void setExamId(Long examId) {
         this.examId = examId;
     }
 
+    public Long getStudentId() {
+        return studentId;
+    }
+
     public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 
+    public String getRoomNo() {
+        return roomNo;
+    }
+
     public void setRoomNo(String roomNo) {
         this.roomNo = roomNo;
+    }
+
+    public int getSeatNo() {
+        return seatNo;
     }
 
     public void setSeatNo(int seatNo) {
