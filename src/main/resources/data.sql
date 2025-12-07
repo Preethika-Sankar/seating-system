@@ -1,10 +1,10 @@
 -- =========================
--- Drop tables to avoid startup errors
+-- Clear tables safely
 -- =========================
-DROP TABLE IF EXISTS seating_plan;
-DROP TABLE IF EXISTS room;
-DROP TABLE IF EXISTS exam;
-DROP TABLE IF EXISTS student;
+TRUNCATE TABLE seating_plan;
+TRUNCATE TABLE room;
+TRUNCATE TABLE exam;
+TRUNCATE TABLE student;
 
 -- =========================
 -- Students
@@ -39,6 +39,7 @@ INSERT INTO room (room_no, capacity) VALUES ('Room C', 20);
 -- =========================
 -- Seating Plan
 -- =========================
+-- Exam 1 (Semester 7 Final)
 INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (1, 1, 'Room A', 1);
 INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (1, 2, 'Room A', 2);
 INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (1, 3, 'Room B', 1);
@@ -46,6 +47,8 @@ INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (1, 4, '
 INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (1, 5, 'Room B', 3);
 INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (1, 6, 'Room A', 3);
 INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (1, 7, 'Room A', 4);
+
+-- Exam 2 (Semester 6 Midterm)
 INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (2, 8, 'Room C', 1);
 INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (2, 9, 'Room C', 2);
 INSERT INTO seating_plan (exam_id, student_id, room_no, seat_no) VALUES (2, 10, 'Room C', 3);

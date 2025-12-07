@@ -31,43 +31,19 @@ public class SeatingPlan {
         this.seatNo = seatNo;
     }
 
-    public Long getId() {
-        return id;
-    }
+    // Getters and Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public Long getExamId() { return examId; }
+    public void setExamId(Long examId) { this.examId = examId; }
 
-    public Long getExamId() {
-        return examId;
-    }
+    public Long getStudentId() { return studentId; }
+    public void setStudentId(Long studentId) { this.studentId = studentId; }
 
-    public void setExamId(Long examId) {
-        this.examId = examId;
-    }
+    public String getRoomNo() { return roomNo; }
+    public void setRoomNo(String roomNo) { this.roomNo = roomNo; }
 
-    public Long getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
-    }
-
-    public String getRoomNo() {
-        return roomNo;
-    }
-
-    public void setRoomNo(String roomNo) {
-        this.roomNo = roomNo;
-    }
-
-    public int getSeatNo() {
-        return seatNo;
-    }
-
-    public void setSeatNo(int seatNo) {
-        this.seatNo = seatNo;
-    }
+    public int getSeatNo() { return seatNo; }
+    public void setSeatNo(int seatNo) { this.seatNo = seatNo; }
 }

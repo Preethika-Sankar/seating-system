@@ -16,7 +16,6 @@ public class Student {
     private String rollNo;
 
     private String course;
-
     private int semester;
 
     public Student() {}
@@ -28,43 +27,19 @@ public class Student {
         this.semester = semester;
     }
 
-    public Long getId() {
-        return id;
-    }
+    // Getters and Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public String getName() {
-        return name;
-    }
+    public String getRollNo() { return rollNo; }
+    public void setRollNo(String rollNo) { this.rollNo = rollNo; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public String getCourse() { return course; }
+    public void setCourse(String course) { this.course = course; }
 
-    public String getRollNo() {
-        return rollNo;
-    }
-
-    public void setRollNo(String rollNo) {
-        this.rollNo = rollNo;
-    }
-
-    public String getCourse() {
-        return course;
-    }
-
-    public void setCourse(String course) {
-        this.course = course;
-    }
-
-    public int getSemester() {
-        return semester;
-    }
-
-    public void setSemester(int semester) {
-        this.semester = semester;
-    }
+    public int getSemester() { return semester; }
+    public void setSemester(int semester) { this.semester = semester; }
 }
