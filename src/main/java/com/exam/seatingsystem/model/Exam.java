@@ -18,7 +18,6 @@ public class Exam {
         this.name = name;
     }
 
-    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
