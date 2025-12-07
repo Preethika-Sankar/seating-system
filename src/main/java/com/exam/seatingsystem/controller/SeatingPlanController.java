@@ -1,8 +1,7 @@
 package com.exam.seatingsystem.controller;
 
-import com.exam.seatingsystem.dto.SeatingPlanDTO;
-import com.exam.seatingsystem.service.SeatingService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.exam.seatingsystem.model.SeatingPlan;
+import com.exam.seatingsystem.repository.SeatingPlanRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,16 +10,14 @@ import java.util.List;
 @RequestMapping("/plan")
 public class SeatingPlanController {
 
-    private final SeatingService seatingService;
+    private final SeatingPlanRepository seatingPlanRepository;
 
-    @Autowired
-    public SeatingPlanController(SeatingService seatingService) {
-        this.seatingService = seatingService;
+    public SeatingPlanController(SeatingPlanRepository seatingPlanRepository) {
+        this.seatingPlanRepository = seatingPlanRepository;
     }
 
-    // GET /plan/{examId}
     @GetMapping("/{examId}")
-    public List<SeatingPlanDTO> getSeatingPlan(@PathVariable Long examId) {
-        return seatingService.getSeatingPlanByExam(examId);
+    public List<SeatingPlan> getSeatingPlanByExam(@PathVariable Long examId) {
+        return seatingPlanRepository.findByExamId(examId);
     }
 }
