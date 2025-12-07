@@ -1,10 +1,10 @@
 -- =========================
 -- Clear tables safely
 -- =========================
-TRUNCATE TABLE seating_plan;
-TRUNCATE TABLE room;
-TRUNCATE TABLE exam;
-TRUNCATE TABLE student;
+DELETE FROM seating_plan;
+DELETE FROM room;
+DELETE FROM exam;
+DELETE FROM student;
 
 -- =========================
 -- Students
